@@ -1,0 +1,57 @@
+import pandas as pd
+
+# Sample product data
+products = [
+    {"Name": "Men's Classic T-Shirt", "Category": "Men", "Price": 19.99, "Stock": 100},
+    {"Name": "Women's Summer Dress", "Category": "Women", "Price": 29.99, "Stock": 80},
+    {"Name": "Kid's Hoodie", "Category": "Kids", "Price": 24.99, "Stock": 60},
+    {"Name": "Unisex Denim Jacket", "Category": "Unisex", "Price": 49.99, "Stock": 50},
+    {"Name": "Men's Formal Shirt", "Category": "Men", "Price": 35.00, "Stock": 70},
+    {"Name": "Women's Workout Leggings", "Category": "Women", "Price": 22.50, "Stock": 90},
+    {"Name": "Kid's Cartoon T-Shirt", "Category": "Kids", "Price": 15.99, "Stock": 65},
+    {"Name": "Baseball Cap", "Category": "Accessories", "Price": 12.99, "Stock": 150},
+    {"Name": "Men's Jogger Pants", "Category": "Men", "Price": 32.99, "Stock": 85},
+    {"Name": "Women's Blazer", "Category": "Women", "Price": 55.00, "Stock": 40},
+    {"Name": "Kid's Jeans", "Category": "Kids", "Price": 19.99, "Stock": 70},
+    {"Name": "Leather Belt", "Category": "Accessories", "Price": 18.99, "Stock": 120},
+    {"Name": "Unisex Graphic Tee", "Category": "Unisex", "Price": 21.99, "Stock": 95},
+    {"Name": "Women's Crop Top", "Category": "Women", "Price": 17.50, "Stock": 100},
+    {"Name": "Men's Polo Shirt", "Category": "Men", "Price": 25.99, "Stock": 60},
+    {"Name": "Kid's Pajama Set", "Category": "Kids", "Price": 27.50, "Stock": 55},
+    {"Name": "Wool Scarf", "Category": "Accessories", "Price": 14.50, "Stock": 130},
+    {"Name": "Women's Maxi Skirt", "Category": "Women", "Price": 28.75, "Stock": 75},
+    {"Name": "Men's Winter Coat", "Category": "Men", "Price": 89.99, "Stock": 30},
+    {"Name": "Unisex Beanie", "Category": "Accessories", "Price": 10.00, "Stock": 140}
+]
+
+# Create DataFrame
+df = pd.DataFrame(products)
+df["Type"] = "simple"
+df["Published"] = 1
+df["Is featured?"] = 0
+df["Visibility in catalog"] = "visible"
+df["Short description"] = df["Name"] + " - High quality and stylish."
+df["Description"] = df["Name"] + " is made with premium materials and designed for comfort and style."
+df["SKU"] = ["SKU" + str(i+1).zfill(4) for i in range(len(df))]
+df["Stock status"] = "instock"
+df["Tax status"] = "taxable"
+df["Tax class"] = ""
+df["Images"] = ""
+df["Categories"] = df["Category"]
+
+# Reorder columns
+df = df[[
+    "Type", "SKU", "Name", "Published", "Is featured?", "Visibility in catalog",
+    "Short description", "Description", "Tax status", "Tax class", "Stock status",
+    "Price", "Stock", "Images", "Categories"
+]]
+
+# Rename columns for WooCommerce
+df.columns = [
+    "Type", "SKU", "Name", "Published", "Is featured?", "Visibility in catalog",
+    "Short description", "Description", "Tax status", "Tax class", "Stock status",
+    "Regular price", "Stock", "Images", "Categories"
+]
+
+# Save as CSV
+df.to_csv("woocommerce_products_sample.csv", index=False)

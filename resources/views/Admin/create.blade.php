@@ -14,7 +14,7 @@
         <!--  Sidebar End -->
         <!--  Main wrapper -->
         <div class="body-wrapper">
-            <div class="container-fluid w-100">
+            <div class="container-fluid w-100" style="padding-top:0">
                 <!--  Row 1 -->
                 <div class="row w-100">
                     <div class="col-lg-12">

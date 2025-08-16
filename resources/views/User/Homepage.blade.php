@@ -188,13 +188,8 @@
     </div>
   </div>
 </div>
-
-
 </div>
-
-
 </div>
-
 </div>
 
 <section class="py-5 text-center bg-light">
@@ -232,13 +227,12 @@
 </div>
 
 
-
 <script type="text/javascript">
   (function(d, t) {
       var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
       v.onload = function() {
         window.voiceflow.chat.load({
-          verify: { projectID: '670756ef53f9a7cc3db7255b' },
+          verify: { projectID: '689d42edf8cce30dbdc9f848' },
           url: 'https://general-runtime.voiceflow.com',
           versionID: 'production',
           voice: {

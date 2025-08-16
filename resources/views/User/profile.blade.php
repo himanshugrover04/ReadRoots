@@ -7,7 +7,7 @@
             <div class="card shadow p-4">
                 <div class="text-center mb-4">
                     {{-- Circle avatar --}}
-                    <img src="{{ asset('images/avatar.png') }}" alt="User Avatar" class="rounded-circle" width="120" height="120">
+                    <img src="{{ asset('/assets/images/avatar.png') }}" alt="User Avatar" class="rounded-circle" width="120" height="120">
                     <h3 class="mt-3">{{ $user->first_name }} {{ $user->last_name }}</h3>
                 </div>
                 <div class="row">
